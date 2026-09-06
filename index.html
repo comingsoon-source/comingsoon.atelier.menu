@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>甲面超人｜美甲價目表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#f6f1e8;
+    --ivory-deep:#efe7d8;
+    --ink:#2c2621;
+    --ink-soft:#6b625a;
+    --rose:#b07a68;
+    --line:#d9cdba;
+    --paper:#fbf8f2;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Noto Serif TC', serif;
+  }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:56px 20px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(176,122,104,0.06), transparent 60%),
+      var(--ivory);
+  }
+
+  .card{
+    width:100%;
+    max-width:560px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:clamp(36px, 7vw, 72px) clamp(24px, 6vw, 56px);
+    position:relative;
+    opacity:0;
+    animation:reveal 0.9s ease-out forwards;
+  }
+
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+
+  @keyframes reveal{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{ animation:none; opacity:1; }
+  }
+
+  header{
+    text-align:center;
+    padding-bottom:30px;
+  }
+
+  .brand{
+    margin:0;
+    line-height:1.15;
+  }
+
+  .brand .main{
+    display:block;
+    font-family:'Noto Serif TC', serif;
+    font-weight:700;
+    font-size:clamp(30px, 7.5vw, 42px);
+    letter-spacing:0.06em;
+    color:var(--rose);
+  }
+
+  .brand .sub{
+    display:block;
+    font-family:'Noto Serif TC', serif;
+    font-weight:500;
+    font-size:clamp(20px, 5vw, 26px);
+    letter-spacing:0.14em;
+    color:var(--ink);
+    margin-top:8px;
+  }
+
+  .tagline{
+    margin:10px 0 0;
+    font-size:14px;
+    letter-spacing:0.18em;
+    color:var(--ink-soft);
+    font-weight:300;
+  }
+
+  .rule{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:0 auto 30px;
+    width:64px;
+  }
+
+  .rule.wide{
+    width:100%;
+    margin:34px 0;
+  }
+
+  h2{
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.12em;
+    color:var(--ink);
+    margin:0 0 20px;
+    text-align:center;
+  }
+
+  .list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .row{
+    display:flex;
+    align-items:baseline;
+  }
+
+  .row .name{
+    white-space:nowrap;
+    font-size:16px;
+    font-weight:500;
+  }
+
+  .row .note{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-weight:300;
+    margin-left:4px;
+  }
+
+  .leader{
+    flex:1;
+    margin:0 8px;
+    border-bottom:1px dotted var(--line);
+    transform:translateY(-4px);
+  }
+
+  .row .price{
+    white-space:nowrap;
+    font-size:16px;
+    font-weight:500;
+    color:var(--rose);
+    font-variant-numeric:oldstyle-nums;
+  }
+
+  .combo{
+    padding-top:2px;
+  }
+  .combo .sub{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-weight:300;
+    margin:4px 0 0;
+    padding-left:2px;
+  }
+
+  .ornament{
+    display:flex;
+    justify-content:center;
+    margin:34px 0;
+  }
+  .ornament svg{
+    width:34px;
+    height:34px;
+    stroke:var(--rose);
+  }
+
+  footer{
+    margin-top:36px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+
+  footer p{
+    margin:0 0 6px;
+    font-size:12px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    font-weight:300;
+    text-align:center;
+  }
+
+  footer p:last-child{ margin-bottom:0; }
+
+  @media (max-width:400px){
+    .row .name, .row .price{ font-size:14.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <header>
+    <h1 class="brand">
+      <span class="main">-COMING SOON-</span>
+      <span class="sub">甲面超人</span>
+    </h1>
+    <p class="tagline">Price List</p>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <h2>施工項目</h2>
+    <div class="list">
+      <div class="row">
+        <span class="name">單色</span>
+        <span class="leader"></span>
+        <span class="price">$390</span>
+      </div>
+      <div class="row">
+        <span class="name">貓眼</span>
+        <span class="leader"></span>
+        <span class="price">$390</span>
+      </div>
+      <div class="row">
+        <span class="name">任我做系列</span>
+        <span class="leader"></span>
+        <span class="price">$590</span>
+      </div>
+      <div class="combo">
+        <div class="row">
+          <span class="name">帶圖款式</span>
+          <span class="leader"></span>
+          <span class="price">$590 起</span>
+        </div>
+        <p class="sub">依樣式報價（暫無手繪）</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament" aria-hidden="true">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6C24 12 27 18 27 24C27 30 24 34 20 34C16 34 13 30 13 24C13 18 16 12 20 6Z" stroke-width="1.2"/>
+      <path d="M15 24C16.5 21 18 19.5 20 19.5" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <section>
+    <h2>加購項目</h2>
+    <div class="list">
+      <div class="row">
+        <span class="name">卸甲</span>
+        <span class="leader"></span>
+        <span class="price">$110</span>
+      </div>
+      <div class="combo">
+        <div class="row">
+          <span class="name">延甲<span class="note">（無十指延甲）</span></span>
+          <span class="leader"></span>
+          <span class="price">$60 / 指</span>
+        </div>
+      </div>
+      <div class="row">
+        <span class="name">純保養<span class="note">（修型、剪甘皮）</span></span>
+        <span class="leader"></span>
+        <span class="price">$390</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>＊新手美甲師練習中，請保留 3.5–4 hrs</p>
+    <p>＊沒有新手美甲師價格、老手美甲師的速度😳</p>
+    <p>＊首次預約須預付定金 $500</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
