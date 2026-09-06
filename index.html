@@ -213,6 +213,82 @@
     outline-offset:3px;
   }
 
+  .remit-box{
+    margin-top:36px;
+    padding-top:22px;
+    border-top:1px dashed var(--line);
+    text-align:center;
+  }
+
+  .remit-box h2{
+    margin-bottom:16px;
+  }
+
+  .remit-account{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+    font-weight:500;
+    letter-spacing:0.03em;
+    margin:0 0 24px;
+  }
+
+  .remit-box .remit-label{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-weight:400;
+    margin:0 0 12px;
+  }
+
+  .remit-form{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  .remit-input{
+    width:120px;
+    padding:9px 12px;
+    font-family:'Noto Serif TC', serif;
+    font-size:15px;
+    letter-spacing:0.1em;
+    text-align:center;
+    color:var(--ink);
+    background:var(--ivory);
+    border:1px solid var(--line);
+  }
+
+  .remit-input:focus{
+    outline:none;
+    border-color:var(--rose);
+  }
+
+  .remit-btn{
+    padding:9px 22px;
+    font-family:'Noto Serif TC', serif;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.08em;
+    color:var(--paper);
+    background:var(--rose);
+    border:1px solid var(--rose);
+    cursor:pointer;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+
+  .remit-btn:hover{
+    background:transparent;
+    color:var(--rose);
+  }
+
+  .remit-hint{
+    font-size:11px;
+    color:var(--ink-soft);
+    font-weight:300;
+    margin:10px 0 0;
+  }
+
   footer{
     margin-top:36px;
     padding-top:22px;
@@ -312,12 +388,55 @@
   <footer>
     <p style="font-weight:600; color:var(--ink);">如預約平日晚上的時段，請在官方LINE說想要的日期、時間</p>
     <a class="book-btn" href="https://calendar.app.google/1tZ9WrwDP9gpGkXm8" target="_blank" rel="noopener noreferrer">予 約 時 段</a>
+
     <p>＊新手美甲師練習中，請保留 3.5–4 hrs</p>
     <p>＊沒有新手美甲師價格、老手美甲師的速度😳</p>
     <p>＊首次預約須預付定金 $500</p>
   </footer>
 
+  <section class="remit-box">
+    <h2>匯款資訊</h2>
+    <p class="remit-account">中國信託（822）<br>182540171359</p>
+
+    <p class="remit-label">完成匯款後，請填入帳號末五碼並回報</p>
+    <div class="remit-form">
+      <input
+        type="text"
+        class="remit-input"
+        id="remitCode"
+        maxlength="5"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        placeholder="末五碼"
+      >
+      <button type="button" class="remit-btn" id="remitBtn">回 報 匯 款</button>
+    </div>
+    <p class="remit-hint" id="remitHint">＊按下後會開啟 LINE，訊息已自動填好，直接傳送即可</p>
+  </section>
+
 </div>
+
+<script>
+  document.getElementById('remitBtn').addEventListener('click', function () {
+    var input = document.getElementById('remitCode');
+    var hint = document.getElementById('remitHint');
+    var code = input.value.trim();
+
+    if (!/^\d{5}$/.test(code)) {
+      hint.textContent = '請輸入 5 碼數字末五碼';
+      hint.style.color = '#b3453b';
+      input.focus();
+      return;
+    }
+
+    hint.textContent = '＊按下後會開啟 LINE，訊息已自動填好，直接傳送即可';
+    hint.style.color = '';
+
+    var message = '我已完成匯款，帳號末五碼：' + code;
+    var lineUrl = 'https://line.me/R/oaMessage/@161ghwmf/?' + encodeURIComponent(message);
+    window.open(lineUrl, '_blank');
+  });
+</script>
 
 </body>
 </html>
