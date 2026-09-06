@@ -186,6 +186,33 @@
     stroke:var(--rose);
   }
 
+  .book-btn{
+    display:block;
+    width:fit-content;
+    margin:16px auto 20px;
+    padding:11px 32px;
+    font-family:'Noto Serif TC', serif;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.12em;
+    color:var(--paper);
+    background:var(--rose);
+    text-decoration:none;
+    text-align:center;
+    border:1px solid var(--rose);
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+
+  .book-btn:hover{
+    background:transparent;
+    color:var(--rose);
+  }
+
+  .book-btn:focus-visible{
+    outline:2px solid var(--rose);
+    outline-offset:3px;
+  }
+
   footer{
     margin-top:36px;
     padding-top:22px;
@@ -282,6 +309,8 @@
   </section>
 
   <footer>
+    <p style="font-weight:600; color:var(--ink);">如預約平日晚上的時段，請在官方LINE說想要的日期、時間</p>
+    <a class="book-btn" href="https://calendar.app.google/1tZ9WrwDP9gpGkXm8" target="_blank" rel="noopener noreferrer">予 約 時 段</a>
     <p>＊新手美甲師練習中，請保留 3.5–4 hrs</p>
     <p>＊沒有新手美甲師價格、老手美甲師的速度😳</p>
     <p>＊首次預約須預付定金 $500</p>
